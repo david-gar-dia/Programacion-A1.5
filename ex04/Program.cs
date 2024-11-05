@@ -1,30 +1,31 @@
-﻿namespace ex03
+﻿namespace ex04
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             //Variable Declaration
-            int countPositives, countNegatives, num;
+            StreamReader file = new StreamReader("NUMEROS.TXT");
+            string line;
+            int countPositives, countNegatives, number;
 
             //Initial Values
+            line = file.ReadLine();
             countPositives = 0;
             countNegatives = 0;
 
-            Console.Write("Introduce a number: ");
-            num = Convert.ToInt32(Console.ReadLine());
+            while (line != null)
+            {
+                number = Convert.ToInt32(line);
 
-            //Algorithms and Calculus
-            while (num != 0)
-            {   
-                if (num > 0)
+                if (number > 0)
                     countPositives++;
-                else if (num < 0)
+                else if (number < 0)
                     countNegatives++;
 
-                Console.Write("Introduce a number: ");
-                num = Convert.ToInt32(Console.ReadLine());
+                line = file.ReadLine();
             }
+            file.Close();
 
             //Output Values
             Console.WriteLine($"You have introduced {countPositives} positive numbers and {countNegatives} negative numbers");
