@@ -25,27 +25,29 @@ namespace ex16
             //Initial Values
             Console.Write("Introduce the radius of the circle for which you want to check if the points lie inside: ");
             radius = Convert.ToDouble(Console.ReadLine());
-
             count = 0;
+            horizontalCoord = 0;
+            verticalCoord = 0;
             line = file.ReadLine();
 
             //Algorithms and Calculus
             while (line != null)
             {
-                count++;
+                if (count %2 == 0)
+                    horizontalCoord = Convert.ToDouble(line);
+                else
+                {
+                    line = file.ReadLine();
+                    verticalCoord = Convert.ToDouble(line);
 
-                horizontalCoord = Convert.ToDouble(line);
-
-                line = file.ReadLine();
-                verticalCoord = Convert.ToDouble(line);
-                
-                //Output Values
-                if (CalcModule(horizontalCoord, verticalCoord) < radius)
-                    Console.WriteLine($"The point of the plane ({horizontalCoord},{verticalCoord}) lays inside the circle");
-                else if (CalcModule(horizontalCoord, verticalCoord) == radius)
-                    Console.WriteLine($"The point of the plane ({horizontalCoord},{verticalCoord}) lays in the perimeter of the circle");
-                else 
-                    Console.WriteLine($"The point of the plane ({horizontalCoord},{verticalCoord}) lays outside the circle");
+                    //Output Values
+                    if (CalcModule(horizontalCoord, verticalCoord) < radius)
+                        Console.WriteLine($"The point of the plane ({horizontalCoord},{verticalCoord}) lays inside the circle");
+                    else if (CalcModule(horizontalCoord, verticalCoord) == radius)
+                        Console.WriteLine($"The point of the plane ({horizontalCoord},{verticalCoord}) lays in the perimeter of the circle");
+                    else
+                        Console.WriteLine($"The point of the plane ({horizontalCoord},{verticalCoord}) lays outside the circle");
+                }
 
                 line = file.ReadLine();
             }

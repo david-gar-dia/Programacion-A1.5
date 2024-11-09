@@ -24,7 +24,7 @@
                     line = file.ReadLine();
                     bonusValue = Convert.ToInt32(line);
                     totalEarning += bonusValue;
-                    Console.WriteLine($"The BONUS tcket {bonusCount} will receive a value of {bonusValue}€");
+                    Console.WriteLine($"The BONUS ticket {bonusCount} will receive a value of {bonusValue}€");
                 }
 
                 line = file.ReadLine();
