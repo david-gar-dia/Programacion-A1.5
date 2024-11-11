@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             //Variable Declaration
-            StreamReader file = new StreamReader("Girona lliga23_24.txt");
+            StreamReader file = new StreamReader("Girona lliga23_24(visitant-local).txt");
             int goalsGirona, goalsOtherTeam, totalPoints, gamesWon, gamesLost, gamesTied, count, countGames;
             string line;
 
@@ -22,7 +22,7 @@
             line = file.ReadLine();
 
             //Algorithms and Calculus
-            while (Convert.ToInt32(line) != -1)
+            while (line != null)
             {
                 if (count % 2 == 0)
                 {
