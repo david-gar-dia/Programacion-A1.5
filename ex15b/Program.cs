@@ -6,8 +6,9 @@
         {
             //Variable Declaration
             StreamReader file = new StreamReader("Girona lliga23_24(visitant-local).txt");
-            int goalsGirona, goalsOtherTeam, totalPoints, gamesWon, gamesLost, gamesTied, count, countGames;
+            int goalsGirona, goalsOtherTeam, totalPoints, gamesWon, gamesLost, gamesTied, count;
             string line;
+            bool local;
 
             //Initial Values
             totalPoints = 0;
@@ -17,7 +18,7 @@
             gamesLost = 0;
             gamesTied = 0;
             count = 0;
-            countGames = 0;
+            local = false;
 
             line = file.ReadLine();
 
@@ -26,14 +27,14 @@
             {
                 if (count % 2 == 0)
                 {
-                    if (countGames % 2 == 0)
-                        goalsOtherTeam = Convert.ToInt32(line);
-                    else
+                    if (local)
                         goalsGirona = Convert.ToInt32(line);
+                    else
+                        goalsOtherTeam = Convert.ToInt32(line);
                 }
                 else
                 {
-                    if (countGames % 2 == 0)
+                    if (!local)
                         goalsGirona = Convert.ToInt32(line);
                     else
                         goalsOtherTeam = Convert.ToInt32(line);
@@ -51,7 +52,7 @@
                     else
                         gamesLost++;
 
-                    countGames++;
+                    local = !local;
                 }
                 count++;
                 line = file.ReadLine();

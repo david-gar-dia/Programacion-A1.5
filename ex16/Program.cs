@@ -23,12 +23,13 @@ namespace ex16
             string line;
 
             //Initial Values
-            Console.Write("Introduce the radius of the circle for which you want to check if the points lie inside: ");
-            radius = Convert.ToDouble(Console.ReadLine());
             count = 0;
             horizontalCoord = 0;
             verticalCoord = 0;
             line = file.ReadLine();
+
+            Console.Write("Introduce the radius of the circle for which you want to check if the points lie inside: ");
+            radius = Convert.ToDouble(Console.ReadLine());
 
             //Algorithms and Calculus
             while (line != null)
@@ -48,7 +49,7 @@ namespace ex16
                     else
                         Console.WriteLine($"The point of the plane ({horizontalCoord},{verticalCoord}) lays outside the circle");
                 }
-
+                count++;
                 line = file.ReadLine();
             }
             file.Close();
